@@ -1,0 +1,73 @@
+.navbar {
+    background: #c3e7ff;
+    display: flex;
+    text-align: center;
+    padding: 10px;
+
+    >.logoimg {
+        height: auto;
+        width: 80px;
+    }
+
+    >.logo_connexion {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs, 2));
+        width: 16px;
+        height: 18px;
+        border: 2px solid;
+        border-left: 0;
+        box-shadow:
+            -8px -6px 0 -6px,
+            -8px 6px 0 -6px;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            position: absolute;
+            right: 4px
+        }
+
+        &::before {
+            background: currentColor;
+            width: 16px;
+            height: 2px;
+            top: 6px
+        }
+
+        &::after {
+            width: 6px;
+            height: 6px;
+            border-right: 2px solid;
+            border-top: 2px solid;
+            top: 4px;
+            transform: rotate(45deg)
+        }
+
+        &:hover::before,
+        &:hover::after {
+            animation: arrow;
+            animation-duration: 1s;
+        }
+
+    }
+}
+
+//animation for the arrow
+
+@keyframes arrow {
+    0% {
+        right: 4px;
+    }
+
+    50% {
+        right: 10px;
+    }
+
+    100% {
+        right: 4px;
+    }
+}
