@@ -7,6 +7,19 @@ import "react-color-palette/lib/css/styles.css";
 import { CirclePicker } from "react-color";
 import moment from "moment";
 
+// import langue
+import 'moment/locale/fr'; // france
+import 'moment/locale/es'; // espana
+import 'moment/locale/de'; // deutch
+import 'moment/locale/pt'; // portugues
+import 'moment/locale/ru'; // russia
+import 'moment/locale/it'; // italien
+import 'moment/locale/ja'; // japan
+
+// langue calendar
+moment.locale('fr');
+
+// initialisation des types
 interface Event {
   id: number;
   title: string;
@@ -17,12 +30,12 @@ interface Event {
 }
 
 const Planning = (): JSX.Element => {
+  // initialisation des données
   const [showPopupEventSup, setShowPopupEventSup] = useState<boolean>(false);
   const [showPopupEvent, setShowPopupEvent] = useState<boolean>(false);
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [hasTitle, setHasTitle] = useState<boolean>(true);
-
   const [newEvent, setNewEvent] = useState<Event>({
     id: events.length,
     title: "",
@@ -32,6 +45,7 @@ const Planning = (): JSX.Element => {
     color: "#121212",
   });
 
+  // pour fermer le popUp ou en la fermant
   const handleClosePopup = (): void => {
     setShowPopupEvent(false);
     setShowPopupEventSup(false);
@@ -45,11 +59,13 @@ const Planning = (): JSX.Element => {
     });
   };
 
+  // quand un event est selectionner
   const handleSelect = ({ start, end }: { start: Date; end: Date }): void => {
     setNewEvent({ ...newEvent, start, end });
     setShowPopupEvent(true);
   };
 
+  // quand un event est delete
   const handleEventDelete = (eventToDelete: Event): void => {
     const updatedEvents = events.filter(
       (event) => event.id !== eventToDelete.id
@@ -58,6 +74,7 @@ const Planning = (): JSX.Element => {
     handleClosePopup();
   };
 
+  // creation de l'event
   const eventStyleGetter = (
     event: Event,
     start: Date,
@@ -66,7 +83,6 @@ const Planning = (): JSX.Element => {
   ): { style: { backgroundColor: string; cursor: string } } => {
     const momentStart = moment(start);
     const momentEnd = moment(end);
-
     return {
       style: {
         backgroundColor: event.color,
@@ -75,11 +91,13 @@ const Planning = (): JSX.Element => {
     };
   };
 
+  // quand event clicker
   const handleEventClick = (event: Event): void => {
     setSelectedEvent(event);
     setShowPopupEventSup(true);
   };
 
+  // quand un event à été creer
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const { id, title, start, end, color, description } = newEvent;
@@ -94,6 +112,7 @@ const Planning = (): JSX.Element => {
     }
   };
 
+  // front 
   return (
     <div style={{ height: "500px" }}>
       <Calendar
@@ -105,7 +124,7 @@ const Planning = (): JSX.Element => {
         onSelectSlot={handleSelect}
         eventPropGetter={eventStyleGetter}
         onSelectEvent={handleEventClick}
-        tooltipAccessor={(event) => event.description} // Ajout de la propriété tooltipAccessor
+        tooltipAccessor={(event) => event.description}
       />
       {showPopupEvent && (
         <div className={styles.popup_container}>
