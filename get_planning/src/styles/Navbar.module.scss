@@ -3,6 +3,8 @@
     display: flex;
     text-align: center;
     padding: 10px;
+    justify-content: space-between;
+ 
 
     >.logoimg {
         height: auto;
@@ -16,6 +18,8 @@
         transform: scale(var(--ggs, 2));
         width: 16px;
         height: 18px;
+        margin-top: 2%;
+        margin-right: 2%;
         border: 2px solid;
         border-left: 0;
         box-shadow:
@@ -55,7 +59,10 @@
 
     }
 }
-
+ 
+.test{
+    justify-content:space-between;
+}
 //animation for the arrow
 
 @keyframes arrow {
