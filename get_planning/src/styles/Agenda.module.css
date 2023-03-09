@@ -32,6 +32,7 @@
 }
 
 .popup {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
   width: 80%;
   max-width: 400px;
@@ -178,4 +179,7 @@
   @keyframes dots {
     50%{transform: translateX(-31px)}
   }
-      
+
+  .Calendar{
+    font-family: Arial, Helvetica, sans-serif;
+  }

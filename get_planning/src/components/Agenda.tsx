@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import axios from "axios";
+// import axios from "axios";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import styles from "../styles/Agenda.module.css";
 import "react-color-palette/lib/css/styles.css";
@@ -76,12 +76,6 @@ const Planning = (): JSX.Element => {
     end: new Date(),
     color: "#aaaaaa",
   });
-  const [data, setData] = useState<Data | null>(null);
-
-  interface Data {
-    id: number;
-    name: string;
-  }
 
   // pour fermer le popUp ou en la fermant
   const handleClosePopup = (): void => {
@@ -115,12 +109,7 @@ const Planning = (): JSX.Element => {
   // creation de l'event
   const eventStyleGetter = (
     event: Event,
-    start: Date,
-    end: Date,
-    isSelected: boolean
   ): { style: { backgroundColor: string; cursor: string } } => {
-    const momentStart = moment(start);
-    const momentEnd = moment(end);
     return {
       style: {
         backgroundColor: event.color,
@@ -150,7 +139,14 @@ const Planning = (): JSX.Element => {
     }
   };
 
-  /*useEffect(() => {
+  /*
+  const [data, setData] = useState<Data | null>(null);
+  interface Data {
+    id: number;
+    name: string;
+  }
+
+  useEffect(() => {
     const response = axios.get("http://127.0.0.1:8000/planning/agenda/1", {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -178,6 +174,7 @@ const Planning = (): JSX.Element => {
       </div> */}
       <div style={{ height: "500px" }}>
         <Calendar
+          className={styles.Calendar}
           localizer={momentLocalizer(moment)}
           events={events}
           startAccessor="start"
