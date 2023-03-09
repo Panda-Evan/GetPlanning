@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 // import axios from "axios";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import styles from "../styles/Agenda.module.css";
+import styles from "../../styles/Agenda.module.css";
 import "react-color-palette/lib/css/styles.css";
 import { CirclePicker } from "react-color";
 import moment from "moment";
@@ -24,6 +24,7 @@ import {
   messagesPt,
   messagesRu,
 } from "./textAgenda";
+import AddEvent from "./AddEvent";
 
 const langue: String = "Fr";
 let mes = messagesFr;
@@ -187,79 +188,47 @@ const Planning = (): JSX.Element => {
           tooltipAccessor={(event) => event.title}
         />
         {showPopupEvent && (
-          <div className={styles.popup_container}>
-            <div className={styles.popup}>
-              <span className={styles.close} onClick={handleClosePopup}>
-                &#x2716;
-              </span>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="NameEvent">Nom de l'évènement:</label>
-                <input
-                  type="text"
-                  id="NameEvent"
-                  name="NameEvent"
-                  value={newEvent.title}
-                  onChange={(e) => {
-                    setNewEvent({ ...newEvent, title: e.target.value });
-                    setHasTitle(!!e.target.value);
-                  }}
-                  className={hasTitle ? "" : styles.shake}
-                />
-                <label htmlFor="Description">Description:</label>
-                <textarea
-                  id="description"
-                  name="description"
-                  value={newEvent.description}
-                  onChange={(e) => {
-                    setNewEvent({ ...newEvent, description: e.target.value });
-                    setHasTitle(!!e.target.value);
-                  }}
-                />
-                <label htmlFor="color">Couleur:</label>
-                <CirclePicker
-                  color={newEvent.color}
-                  onChangeComplete={(color) =>
-                    setNewEvent({ ...newEvent, color: color.hex })
-                  }
-                />
-                <button className={styles.popup_button_add}>
-                  Ajoutez l'évènement
-                </button>
-              </form>
-            </div>
-          </div>
+          <AddEvent
+          handleClosePopup={handleClosePopup}
+          handleSubmit={handleSubmit}
+          hasTitle={hasTitle}
+          setHasTitle={setHasTitle}
+          newEvent={newEvent}
+          setNewEvent={setNewEvent}
+        />
         )}
         {showPopupEventSup && (
           <div className={styles.popup_container}>
-            <div className={styles.popup}>
-              <span className={styles.close} onClick={handleClosePopup}>
-                &#x2716;
-              </span>
-              <h2 className={styles.popup_title}>
-                Êtes-vous sûr de vouloir supprimer l'événement{" "}
-                {selectedEvent && selectedEvent.title} ?
-              </h2>
-              <div className={styles.div_popup_button}>
-                <button
-                  className={styles.popup_button_sup}
-                  onClick={() => {
-                    if (selectedEvent) {
-                      handleEventDelete(selectedEvent);
-                    }
-                    setShowPopupEventSup(false);
-                  }}
-                >
-                  Oui
-                </button>
-                <button
-                  className={styles.popup_button_sup}
-                  onClick={() => setShowPopupEventSup(false)}
-                >
-                  Non
-                </button>
-              </div>
+          <div className={styles.popup}>
+            <span className={styles.close} onClick={handleClosePopup}>
+              &#x2716;
+            </span>
+            <h2 className={styles.popup_title}>
+              Êtes-vous sûr de vouloir supprimer l'événement{" "}
+              {selectedEvent && selectedEvent.title} ?
+            </h2>
+            <div className={styles.div_popup_button}>
+              <button
+                className={styles.popup_button_sup}
+                onClick={() => {
+                  if (selectedEvent) {
+                    handleEventDelete(selectedEvent);
+                  }
+                  setShowPopupEventSup(false);
+                }}
+              >
+                Oui
+              </button>
+              <button
+                className={styles.popup_button_sup}
+                onClick={() => setShowPopupEventSup(false)}
+              >
+                Non
+              </button>
             </div>
           </div>
+        </div>        
+
         )}
       </div>
     </>
