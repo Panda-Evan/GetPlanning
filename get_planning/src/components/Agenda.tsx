@@ -149,7 +149,7 @@ const Planning = (): JSX.Element => {
       }, 1000);
     }
   };
-
+/*
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios("http://127.0.0.1:8000/planning/agenda/1");
@@ -157,7 +157,7 @@ const Planning = (): JSX.Element => {
     };
     fetchData();
   }, []);
-
+*/
   // front
   return (
     <>
