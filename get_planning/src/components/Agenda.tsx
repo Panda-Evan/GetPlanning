@@ -149,21 +149,22 @@ const Planning = (): JSX.Element => {
       }, 1000);
     }
   };
-/*
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:8000/planning/agenda/1");
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
-*/
+
+  /*useEffect(() => {
+    const response = axios.get("http://127.0.0.1:8000/planning/agenda/1", {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    console.log(response);
+  }, []);*/
+
   // front
   return (
     <>
-      <h1>
-        {data ? (
-          data.name
+      {/* <div>
+        {data && data.name? (
+          <h1>{data.name}</h1>
         ) : (
           <div className={styles.gooey}>
             <span className={styles.dot}></span>
@@ -174,7 +175,7 @@ const Planning = (): JSX.Element => {
             </div>
           </div>
         )}
-      </h1>
+      </div> */}
       <div style={{ height: "500px" }}>
         <Calendar
           localizer={momentLocalizer(moment)}

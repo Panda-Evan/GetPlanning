@@ -25,10 +25,9 @@ function Navbar() {
     <img className={styles.logoimg} src="/navbar/calendrier.png"/>
     <div className={styles.logo_connexion} />
     {!atTop && ( // appears when the scroll bar is not fully
-          <div>
+          <div className={styles.top}>
             <a href="#top">
-              
-              <img className={styles.top} src="/navbar/Midou.png"/>
+              <div className={styles.arrow_up} />
             </a>
           </div>
         )}
