@@ -10,7 +10,12 @@ export default function Home() {
     <>
       <Head>
         <title>Get Planning</title>
+        
       </Head>
+
+       <main>
+        
+       </main>
     </>
   )
 }
