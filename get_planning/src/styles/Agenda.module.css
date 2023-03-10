@@ -1,0 +1,185 @@
+.agenda {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 20px;
+  padding: 10px;
+}
+
+.agenda_case {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.test {
+  z-index: 100;
+}
+
+.popup_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+  border-radius: 20px;
+  }
+
+.popup form {
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .popup label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  }
+
+  .popup textarea {
+    resize: none;
+    height: 100px;
+    width: auto;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  margin-bottom: 20px;
+  }
+  
+  .popup input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  font-size: 16px;
+  }
+  
+  .popup_button_add {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  }
+  
+  .popup_button_add:hover {
+  background-color: #0062cc;
+  }
+    
+    .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    transform: translate(50%, -50%);
+    }
+
+    .popup_title {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .div_popup_buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .popup_button_sup {
+      align-items: center;
+      width: 100px;
+      height: 30px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #007bff;
+      cursor: pointer;
+    }
+    
+    .popup_button_sup:hover {
+      background-color: #0062cc;
+    }
+
+    .shake {
+      animation: shake 1s;
+    }
+    
+    @keyframes shake {
+      0% { transform: translate(0, 0); }
+      10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 0); border-color: red; }
+      20%, 40%, 60%, 80% { transform: translate(5px, 0); border-color: red; }
+      100% { transform: translate(0, 0); }
+    }
+
+    .gooey {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 142px;
+    height: 40px;
+    margin: -20px 0 0 -71px;
+    background: white;
+    filter: contrast(20);
+    }
+    .dot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 12px;
+      left: 15px;
+      filter: blur(4px);
+      background: #000;
+      border-radius: 50%;
+      transform: translateX(0);
+      animation: dot 2.8s infinite;
+    }
+    .dots {
+      transform: translateX(0);
+      margin-top: 12px;
+      margin-left: 31px;
+      animation: dots 2.8s infinite;
+    }
+      .dots span {
+        display: block;
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin-left: 16px;
+        filter: blur(4px);
+        background: #000;
+        border-radius: 50%;
+    }
+  
+  @keyframes dot {
+    50%{transform: translateX(96px)}
+      
+  }
+  @keyframes dots {
+    50%{transform: translateX(-31px)}
+  }
+
+  .Calendar{
+    font-family: Arial, Helvetica, sans-serif;
+  }

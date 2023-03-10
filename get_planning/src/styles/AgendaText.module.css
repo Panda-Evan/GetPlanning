@@ -1,0 +1,72 @@
+.today {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-top: 4px solid;
+    border-radius: 3px
+}
+.today::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    background: currentColor;
+    height: 4px;
+    width: 4px;
+    border-radius: 2px;
+    right: 2px;
+    bottom: 2px
+}
+
+.next,.prev {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 4px
+}
+.next::after,
+.next::before,
+.prev::after,
+.prev::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    height: 8px;
+    top: 5px
+}
+.next::before {
+    width: 2px;
+    border-radius: 2px;
+    left: 11px;
+    background: currentColor
+}
+.next::after {
+    width: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 5px solid;
+    left: 5px
+}
+
+.prev::before {
+    width: 2px;
+    border-radius: 2px;
+    right: 11px;
+    background: currentColor
+}
+.prev::after {
+    width: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 5px solid;
+    right: 5px
+}
