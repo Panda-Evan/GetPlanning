@@ -1,5 +1,6 @@
 import styles from "@/styles/Navbar.module.scss";
 import { useState, useEffect } from "react";
+import Register from "./Form/Register";
 
 function Navbar() {
 
@@ -31,6 +32,8 @@ function Navbar() {
             </a>
           </div>
         )}
+       
+         
   </div>
   );
 }

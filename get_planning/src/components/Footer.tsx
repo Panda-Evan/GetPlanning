@@ -3,7 +3,7 @@ import styles from '@/styles/Footer.module.css';
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
+    <div className={styles.footer}>
       <div className={styles["footer-links"]}>
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
@@ -17,7 +17,7 @@ function Footer() {
       <div className={styles["footer-copy"]}>
         &copy; 2023 My Website. All rights reserved.
       </div>
-    </footer>
+    </div>
   );
 }
 

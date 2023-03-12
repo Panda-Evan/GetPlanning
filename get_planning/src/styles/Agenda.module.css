@@ -4,6 +4,8 @@
   grid-template-rows: repeat(6, 1fr);
   gap: 20px;
   padding: 10px;
+  color: #000;
+ 
 }
 
 .agenda_case {
@@ -29,6 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
 }
 
 .popup {
@@ -181,5 +184,7 @@
   }
 
   .Calendar{
+    color: #000;
+    background: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
   }
