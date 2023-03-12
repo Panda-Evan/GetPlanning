@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/* Body */
+$body-background: linear-gradient(to left, #a55eea, #45aaf2);
+$radius : 20px;
+$table-padding : 20px;
+$break-small: 320px;
+$break-large: 1200px;
+
+$primary: #4b7bec;
+$echo: #f7b731;
+$business: #a55eea;
+
+@mixin transition($time, $property) {
+  -webkit-transition: $time $property ease;
+  -ms-transition: $time $property ease;
+  transition: $time $property ease;
+}
+
+/* Card Themes - Start */
+
+.basic {
+  .pricing_header {
+    background-color: $primary;
+  } 
+  .price_circle {
+    border: 10px solid $primary;
+    transition: all .4s;
+  }
+  &:hover {
+    .price-circle {
+      border-width: 5px;
+    }
+  }
+  .buy_now {
+    &:hover {
+        background-image: none !important;
+        background-color: $primary !important;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, .4);
+      }
+    }
+}
+.echo {
+  .pricing_header {
+    background-color: $echo;
+  } 
+  .price_circle {
+    border: 10px solid $echo;
+    transition: all .4s;
+  }
+  &:hover {
+    .price_circle {
+      border-width: 5px;
+    }
+  }
+  .buy-now {
+    &:hover {
+        background-image: none !important;
+        background-color: $echo !important;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, .4);
+      }
+    }
+}
+
+.business {
+  .pricing_header {
+    background-color: $business;
+  }  
+  .price_circle {
+    border: 10px solid $business;
+    transition: all .4s;
+  }
+  &:hover {
+    .price_circle {
+      border-width: 5px;
+    }
+  }
+  .buy_now {
+    &:hover {
+        background-image: none !important;
+        background-color: $business !important;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, .4);
+      }
+    }
+}
+/* Card Themes - End */
+  
+.container {
+  max-width: 1200px;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.column {
+  flex: 25%;
+  padding: 10px;
+  width: calc(33.3% - 30px);
+  box-sizing: border-box;
+  
+  @media screen and (max-width: 980px) {
+    flex: 50%;
+    display: block;
+  }
+  @media screen and (max-width: 700px) {
+    flex: 100%;
+    display: block;
+  }
+}
+
+.pricing_card {
+  @include transition(0.4s, background-color);
+  height: 600px;
+  background-color: white;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  position: relative;
+  transition: all .4s;
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+  }
+  
+  .popular {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    width: auto;
+    padding: 10px;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    background-color: #eb3b5a;
+    color: white;
+    font-size: 12px;
+    z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  .badge_box {
+    padding:0 40px;
+    margin-top: 80px;
+    span {
+      display: inline-block;
+      border:1px solid $primary;
+      padding: 4px 12px;
+      border-radius: 25px;
+      overflow: hidden;
+      color: $primary;
+    }
+  }
+  
+  .pricing_header {    
+    width: 100%;
+    height: 150px;
+    position: relative;
+    border-radius: $radius $radius 0 0;
+    -webkit-border-radius: $radius $radius 0 0;
+    -moz-border-radius: $radius $radius 0 0;
+    /*border-bottom: 20px solid $primary;*/
+    /*
+    border-radius: $radius $radius 150px 150px;
+    -webkit-border-radius: $radius $radius 150px 150px;
+    -moz-border-radius: $radius $radius 150px 150px;
+    */
+    
+    .plan_title {
+      font-size: 24px;
+      color: white;
+      position: relative;
+      top: 25%;
+    }
+    
+    .price_circle {
+      width: calc(33.3% - 30px);
+      width: 120px;
+      height: 120px;
+      border-radius: 100%;
+      left: calc(50% - 60px);
+      top: 60%;
+      background-color: white;
+      position: absolute;
+      //box-shadow: 1px 3px 5px rgba(0, 0, 0, .4);
+      .info {
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+        color: gray;
+      }
+      
+      .price_title {
+        display: block;
+        font-size: 28px;
+        padding: 28px 0 0;
+        font-weight: bold;
+        small{
+          font-size: 18px;
+        }
+      }      
+    }
+    h2 {
+      position: relative;
+      top: 40%;
+      color: #fff;
+    }
+  }  
+  
+  ul {
+    margin:10px 0 0 0;
+    padding: 0;
+    li {
+      list-style-type: none;
+      display: block;
+      padding: 15px 0 15px 0;
+      margin: 0;
+      border-bottom: 1px solid #f2f2f2;
+    }
+  }
+  .buy_button_box {
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+    
+    .buy_now {
+      text-decoration: none;
+      color: white;
+      padding: 10px 30px;
+      border-radius: $radius;
+      background-image: $body-background;
+      margin-top: 20px;
+    }
+  }  
+}
